@@ -3,6 +3,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton 
 from PyQt5.QtWidgets import QLabel, QLineEdit
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt
 
 W = 400
 H = 450
@@ -59,6 +60,12 @@ class Example(QWidget):
         self.lbl.move(10, 60)
 
         self.count = 0
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_PageUp:
+            self.mas_plus()
+        if event.key() == Qt.Key_PageDown:
+            self.mas_minus()
+
 
     def show_map_file(self):
         # Показать карту
